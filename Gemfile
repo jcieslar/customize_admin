@@ -10,7 +10,7 @@ gem 'has_scope'
 gem 'formtastic'
 gem 'will_paginate'
 gem 'devise'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '1.4.3'
 gem "carrierwave"
 gem "mini_magick"
 gem "ckeditor", "3.7.0.rc2"

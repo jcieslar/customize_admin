@@ -1,4 +1,8 @@
+
 .bundle/
+.hg/
+*.swp
+.hgignore
 log/*.log
 pkg/
 test/dummy/db/*.sqlite3

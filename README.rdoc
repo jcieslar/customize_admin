@@ -1,3 +1,17 @@
 = CustomizeAdmin
 
-This project rocks and uses MIT-LICENSE.
+== Installation
+
+=== Rails 3
+
+Add to your Gamefile:
+
+  gem 'customize_admin'
+
+And then execute:
+
+  bundle install
+
+After this run install generator:
+
+  rails g customize_admin:install
