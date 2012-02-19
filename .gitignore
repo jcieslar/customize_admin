@@ -1,6 +1,6 @@
 
 .bundle/
-.hg/
+.hg/*
 *.swp
 .hgignore
 log/*.log
