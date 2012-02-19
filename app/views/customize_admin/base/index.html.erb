@@ -1,0 +1,48 @@
+
+<div class="page-header">
+  <h1>
+    <%=resource_class.model_name.human%>
+  <div class="pull-right">
+    <%= button_to 'New', new_resource_path, :method => :get, :class => "btn primary" %>
+  </div>
+  </h1>
+
+</div>
+<div class="search">
+<%= form_tag collection_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+</div>
+<% end %>
+</br>
+<table class="zebra-striped">
+  <tr>
+  <% attributes.each do |attr| %>
+    <th> <%= sortable attr, resource_class.human_attribute_name(attr) %> </th>
+  <% end %>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% collection.each do |admin_resource| %>
+<tr>
+
+ <% attributes.each do |attr| %>
+  <td><%= admin_resource.public_send(attr).to_s.truncate(20)  %> </td>
+
+
+ <% end %>
+ <%= render :partial => "index_action", :locals => { :admin_resource => admin_resource } %>
+<%= render :partial => "more_index_action", :locals => { :admin_resource => admin_resource } %>
+
+</tr>
+<% end %>
+</table>
+<div class="digg_pagination">
+<%= will_paginate collection %>
+</div>
+<br />
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CustomizeAdmin</title>
+  <%= stylesheet_link_tag    "customize_admin/application" %>
+  <%= javascript_include_tag "customize_admin/application" %>
+
+  <%= yield( :head ) %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+       <div class="container">
+         <%= render "admin_menu" %>
+         <div class="pull-right">
+           <%= link_to('Logout', destroy_admin_user_session_path, :method => :delete) %>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+
+<%#= CustomizeAdmin::BaseController.subclasses.collect { |type| type.name.split("::").last.split("Controller").last } %>
+<%#= Dir.new(Rails.root.to_s + "/app/controllers/admin/").entries.collect{ |t|   t.split("_controller").first} %>
+<%#= Dir.new("/app/controllers/admin").entries %>
+<%#= link_to "pr", "products" %>
+<%#=  %>
+<div class="page">
+<div>
+  <div class="content">
+  <%= yield %>
+  </div>
+</div>
+</div>
+</body>
+</html>

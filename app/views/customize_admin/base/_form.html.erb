@@ -1,0 +1,7 @@
+<%= semantic_form_for([:admin, resource]) do |f| %>
+  <%= render :partial => "all_form_inputs", :locals => { :f => f } %>
+  <%= render :partial => "more_form_inputs", :locals => { :f => f } %>
+  <div class="right"><%= f.submit  "Save", :class => "btn large primary" %> </div>
+
+<% end %>
+

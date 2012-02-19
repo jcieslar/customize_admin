@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% resource_class.attribute_names.each do |attr| %>
+  <div class="field">
+    <b><%= attr %>:</b> <%= resource.public_send(attr).to_s.truncate(20) %> </br>
+  </div>
+</br>
+<%end%>
+
+<%= render :partial => "more_show_action" %>
+<%= link_to 'Edit', edit_resource_path(resource) %> |
+<%= link_to 'Back', collection_url %>
