@@ -16,7 +16,7 @@ After this run install generator:
 
   rails g customize_admin:install
 
-== Useage
+== Usage
 
 === Scaffold
 CustomizeAdmin allows you to create new resources and add them to your admin. For example:
