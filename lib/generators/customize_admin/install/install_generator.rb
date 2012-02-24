@@ -1,10 +1,10 @@
 class CustomizeAdmin::InstallGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
+
   def add_gems
     insert_into_file "Gemfile", :after => "source 'http://rubygems.org'\n" do
-      "# CustomizeAdmin gems:\n gem 'inherited_resources'\n gem 'has_scope'\n gem 'formtastic'\n gem 'will_paginate'\n gem 'devise'\n gem 'twitter-bootstrap-rails', '1.4.3' \n \n"
+      "# CustomizeAdmin gems:\n gem 'inherited_resources', '1.3.0'\n gem 'has_scope', '0.5.1'\n gem 'formtastic', '2.0.2'\n gem 'will_paginate', '3.0.2'\n gem 'devise', '2.0.0'\n gem 'twitter-bootstrap-rails', '1.4.3' \n \n"
     end
-
   end
 
   def add_routes
@@ -16,7 +16,11 @@ class CustomizeAdmin::InstallGenerator < Rails::Generators::Base
 
   def create_menu_file
     create_file "app/views/customize_admin/application/_admin_menu.html.erb" do
-      "<%= link_to 'Dashboard', #{@name_space}_path, :class => 'brand' %> \n"
+      "<%= link_to 'Dashboard', #{@name_space}_path, :class => 'brand' %>
+        <ul class='nav'>
+          <li></li>
+        </ul>
+      "
     end
   end
 
@@ -29,6 +33,8 @@ class CustomizeAdmin::InstallGenerator < Rails::Generators::Base
   end
 
   def create_admin_user_table
+    #@devise_name = ask("Tell me devise admin user model (default is AdminUser)")
+    #@devise_name.blank? ? @devise_name = "AdminUser" : ""
     generate "devise AdminUser"
   end
 
@@ -66,6 +72,10 @@ def layout_by_resource
 end ",
       :after => "class ApplicationController < ActionController::Base"
 
+  end
+
+  def add_config
+    template "customize_admin.rb", "config/initializers/customize_admin.rb"
   end
 
 end

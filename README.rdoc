@@ -15,3 +15,31 @@ And then execute:
 After this run install generator:
 
   rails g customize_admin:install
+
+== Useage
+
+=== Scaffold
+CustomizeAdmin allows you to create new resources and add them to your admin. For example:
+
+  rails g customize_admin:scaffold product name:string description:text
+
+=== Add resource
+CustomizeAdmin allows you to add new admin resource to your CustomizeAdmin using existing models
+  rails g customize_admin:add_resource NEW_ADMIN_RESOURCE EXISTING_RESOURCE
+
+For example:
+  rails g customize_admin:add_resource account user
+
+
+= Coming soon description of how to:
+== Customize views
+
+== Customize controllers
+
+=== Search query
+Default search query is set like this:
+
+  SEARCH_QUERY = "name LIKE ?"
+
+So, you can overwrite this in your current CustomizeAdmin controller and set different value
+
