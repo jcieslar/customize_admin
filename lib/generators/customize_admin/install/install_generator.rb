@@ -2,8 +2,8 @@ class CustomizeAdmin::InstallGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   def add_gems
-    insert_into_file "Gemfile", :after => "source 'http://rubygems.org'\n" do
-      "# CustomizeAdmin gems:\n gem 'inherited_resources', '1.3.0'\n gem 'has_scope', '0.5.1'\n gem 'formtastic', '2.0.2'\n gem 'will_paginate', '3.0.2'\n gem 'devise', '2.0.0'\n gem 'twitter-bootstrap-rails', '1.4.3' \n \n"
+    insert_into_file "Gemfile", :after => "source 'https://rubygems.org'\n" do
+      "# CustomizeAdmin gems:\n gem 'inherited_resources', '1.3.0'\n gem 'has_scope', '0.5.1'\n gem 'formtastic'\n gem 'will_paginate', '3.0.2'\n gem 'devise', '2.0.0'\n gem 'twitter-bootstrap-rails', '2.1.0' \n gem 'ckeditor', '3.7.1' \n gem 'globalize3' \n \n"
     end
   end
 
@@ -24,7 +24,11 @@ class CustomizeAdmin::InstallGenerator < Rails::Generators::Base
     end
   end
 
-  def run_formtastic_generator
+  def run_bootstrap_generator
+      generate "bootstrap:install"
+  end
+
+  def install_formtastic
     generate "formtastic:install"
   end
 

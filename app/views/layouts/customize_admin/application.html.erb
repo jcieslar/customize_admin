@@ -9,11 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="topbar">
-    <div class="fill">
+  <div class="navbar">
+    <div class="navbar-inner">
        <div class="container">
          <%= render "admin_menu" %>
          <div class="pull-right">
+             <%= I18n.locale %>
+             <%= render "admin_locals" %>
            <%= link_to('Logout', destroy_admin_user_session_path, :method => :delete) %>
          </div>
        </div>
