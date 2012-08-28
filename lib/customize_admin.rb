@@ -8,6 +8,9 @@ module CustomizeAdmin
   mattr_accessor :admin_user
   @@admin_user = "AdminUser"
 
+  mattr_accessor :per_page
+  @@per_page = 50
+
   def self.setup
     yield self
   end
