@@ -8,7 +8,7 @@ module CustomizeAdmin
 
     protected
     def collection
-       collection = search(params[:search]).order( sort_column + " " + sort_direction ).paginate(:per_page => 10, :page => params[:page])
+       collection = search(params[:search]).order( sort_column + " " + sort_direction ).paginate(:per_page => CustomizeAdmin.per_page, :page => params[:page])
     end
 
     def sort_column
